@@ -1,7 +1,19 @@
 import axios from 'axios'
 
-export default() => {
-  return axios.create({
-    baseURL: `http://localhost:8081`
-  })
+const Api = {
+
+  baseUrl: 'http://localhost:8081',
+  url: 'posts',
+
+  fetchPosts () {
+    return axios({
+      method: 'GET',
+      baseURL: Api.baseUrl,
+      url: Api.url,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
 }
+export default Api
