@@ -11,8 +11,12 @@ const mutations = {
 }
 const actions = {
   async fetchAllPosts ({commit}) {
-    const response = await Api.fetchPosts()
-    commit(FETCH_POSTS,response.data)
+    try {
+      const response = await Api.fetchPosts()
+      commit(FETCH_POSTS, response.data)
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 

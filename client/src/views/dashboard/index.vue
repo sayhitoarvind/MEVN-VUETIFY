@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     ...mapActions('main', {
-      fetchAllPosts: 'fetchAllPosts',
+      fetchAllPosts: 'fetchAllPosts'
     })
   },
   created () {
