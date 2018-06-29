@@ -18,6 +18,7 @@ db.once("open", function(callback){
 
 var Post = require("../models/post")
 
+// GET ALL POSTS in order
 app.get('/posts', (req, res) => {
   Post.find({}, 'title description', function (error, posts) {
 	  if (error) { console.error(error); }
@@ -27,8 +28,8 @@ app.get('/posts', (req, res) => {
 	}).sort({_id:-1})
 })
 
-// Add new post(CREATE)
-app.post('/posts', (req, res) => {
+// CREATE A NEW POST
+app.post('/post', (req, res) => {
   var db = req.db;
   var title = req.body.title;
   var description = req.body.description;
