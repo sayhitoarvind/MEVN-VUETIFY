@@ -49,4 +49,15 @@ app.post('/post', (req, res) => {
   })
 })
 
+
+// Fetch single post by ID
+app.get('/post/:id', (req, res) => {
+  var db = req.db;
+  Post.findById(req.params.id, 'title description', function (error, post) {
+    if (error) { console.error(error); }
+    res.send(post)
+  })
+})
+
+
 app.listen(process.env.PORT || 8081)
