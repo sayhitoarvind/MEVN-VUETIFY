@@ -28,7 +28,20 @@ const Api = {
       data: post
     }
   )
+},
+
+  viewPost (Id){
+    return axios({
+      method: 'GET',
+      baseURL: Api.baseUrl,
+      url: Api.url2 +'/'+Id,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+  )
   }
+
 
 }
 export default Api

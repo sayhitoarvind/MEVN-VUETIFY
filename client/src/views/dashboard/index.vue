@@ -19,9 +19,10 @@
                       </v-list-tile-title>
               </v-list-tile-content>
               <v-list-tile-action>
-                <v-btn icon>
+                <v-btn icon @click="editNote(item._id)">
                   <v-icon color="primary">edit</v-icon>
                 </v-btn>
+
               </v-list-tile-action>
           </v-list-tile>
         </v-list>
@@ -41,7 +42,10 @@ export default {
   methods: {
     ...mapActions('main', {
       fetchAllPosts: 'fetchAllPosts'
-    })
+    }),
+    editNote (id) {
+      this.$router.push({path: `/edit/${id}` })
+    }
   },
   created () {
     this.fetchAllPosts()
