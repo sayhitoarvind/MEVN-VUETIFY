@@ -1,7 +1,7 @@
 # MEVN-VUETIFY
-Mongo Express Vue Node with Vuetify 
+Mongo Express Vue Node with Vuetify
 
-uses vuex store 
+uses vuex store
 
 #CLIENT
 
@@ -12,5 +12,5 @@ npm run dev
 
 
 #SERVER
-
+npm install
 npm start
