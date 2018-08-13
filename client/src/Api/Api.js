@@ -28,20 +28,31 @@ const Api = {
       data: post
     }
   )
-},
+  },
 
-  viewPost (Id){
+  viewPost (Id) {
     return axios({
       method: 'GET',
       baseURL: Api.baseUrl,
-      url: Api.url2 +'/'+Id,
+      url: Api.url2 + '/' + Id,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+  )
+  },
+
+  deletePost (Id) {
+    return axios({
+      method: 'DELETE',
+      baseURL: Api.baseUrl,
+      url: Api.url1 + '/' + Id,
       headers: {
         'Content-Type': 'application/json'
       }
     }
   )
   }
-
 
 }
 export default Api

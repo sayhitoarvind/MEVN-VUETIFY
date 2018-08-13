@@ -35,7 +35,7 @@
                       </v-container>
         </v-card-text>
         <v-card-actions>
-          <v-flex offset-xs4>
+          <v-flex offset-xs5>
             <v-btn>Save</v-btn>
           </v-flex>
         </v-card-actions>

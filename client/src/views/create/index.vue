@@ -79,7 +79,7 @@ export default {
   },
   watch: {
     message (value) {
-      if (value != undefined) {
+      if (value !== undefined) {
         this.successMsg = value
       }
     }

@@ -19,10 +19,14 @@
                       </v-list-tile-title>
               </v-list-tile-content>
               <v-list-tile-action>
+                <v-layout row wrap>
                 <v-btn icon @click="editNote(item._id)">
                   <v-icon color="primary">edit</v-icon>
                 </v-btn>
-
+                <v-btn icon @click="deleteSelectedPost(item._id)">
+                  <v-icon color="primary">delete</v-icon>
+                </v-btn>
+              </v-layout>
               </v-list-tile-action>
           </v-list-tile>
         </v-list>
@@ -41,10 +45,11 @@ export default {
   },
   methods: {
     ...mapActions('main', {
-      fetchAllPosts: 'fetchAllPosts'
+      fetchAllPosts: 'fetchAllPosts',
+      deleteSelectedPost: 'deleteSelectedPost'
     }),
     editNote (id) {
-      this.$router.push({path: `/edit/${id}` })
+      this.$router.push({ path: `/edit/${id}` })
     }
   },
   created () {
