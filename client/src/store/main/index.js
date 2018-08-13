@@ -53,6 +53,15 @@ const actions = {
     } catch (error) {
       console.log(error)
     }
+  },
+
+  async updateSelectedPost ({commit}, post) {
+    try {
+      const response = await Api.updatePost(post)
+      actions.fetchAllPosts({commit})
+    } catch (error) {
+      console.log(error)
+    }
   }
 
 

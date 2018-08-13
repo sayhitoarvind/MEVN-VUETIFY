@@ -52,6 +52,19 @@ const Api = {
       }
     }
   )
+},
+
+  updatePost (post) {
+    return axios({
+      method: 'PUT',
+      baseURL: Api.baseUrl,
+      url: Api.url2 + '/' + post._id,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: post
+    }
+  )
   }
 
 }

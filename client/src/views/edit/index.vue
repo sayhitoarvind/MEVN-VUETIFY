@@ -36,7 +36,7 @@
         </v-card-text>
         <v-card-actions>
           <v-flex offset-xs5>
-            <v-btn>Save</v-btn>
+            <v-btn @click="update">Save</v-btn>
           </v-flex>
         </v-card-actions>
       </v-card>
@@ -56,8 +56,13 @@ export default {
   },
   methods: {
     ...mapActions('main', {
-      viewSelectedPost: 'viewSelectedPost'
-    })
+      viewSelectedPost: 'viewSelectedPost',
+      updateSelectedPost: 'updateSelectedPost'
+    }),
+
+    update () {
+      this.updateSelectedPost(this.currentPost)
+    }
 
   },
   created () {
@@ -67,9 +72,6 @@ export default {
     ...mapGetters('main', {
       currentPost: 'currentPost'
     })
-  },
-  watch: {
-
   }
 }
 </script>

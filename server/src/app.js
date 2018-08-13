@@ -20,7 +20,7 @@ var Post = require("../models/post")
 
 // GET ALL POSTS in order
 app.get('/posts', (req, res) => {
-  Post.find({}, 'title description', function (error, posts) {
+    Post.find({}, 'title description', function (error, posts) {
 	  if (error) { console.error(error); }
 	  res.send({
 			posts: posts
@@ -56,6 +56,25 @@ app.get('/post/:id', (req, res) => {
   Post.findById(req.params.id, 'title description', function (error, post) {
     if (error) { console.error(error); }
     res.send(post)
+  })
+})
+
+// Update a post
+app.put('/post/:id', (req, res) => {
+  var db = req.db;
+  Post.findById(req.params.id, 'title description', function (error, post) {
+    if (error) { console.error(error); }
+
+    post.title = req.body.title
+    post.description = req.body.description
+    post.save(function (error) {
+      if (error) {
+        console.log(error)
+      }
+      res.send({
+        success: true
+      })
+    })
   })
 })
 
